@@ -57,7 +57,8 @@ def server():
 
 if __name__ == "__main__":
     global identity
-    global block_chain = []
+    global block_chain
+    block_chain = []
     global block_counter
     block_counter = 1
     identity = int(sys.argv[1]) #identity = 1, 2, 3, 4
