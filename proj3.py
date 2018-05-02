@@ -33,7 +33,7 @@ def client():
                 if message[i] != 'heartbeat':
                     print("getting a block")
                     block_chain.append(message[i])
-                    print("incoming message is " + message[i])
+                    print("incoming message is " + json.dumps(message[i])+ "\n" )
                     #print(block_chain)
                     #socketSendArray[int(message[i].split(':')[0])-1].send_json(str(identity)+":ack")
 
