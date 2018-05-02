@@ -35,7 +35,7 @@ def client():
                     #print("getting a block")
                     print("incoming message prev hash below")
                     print(message[i]['prev_hash'])
-                    print("bloch chain curr hash below" )
+                    print("block chain curr hash below" )
                     print(block_chain[-1]['current_hash'])
                     if(message[i]['prev_hash'] == block_chain[-1]['current_hash']):
                         block_chain.append(message[i])
