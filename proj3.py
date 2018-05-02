@@ -54,7 +54,7 @@ def server():
         for i in range(len(socketSendArray)):
             if (i+1)!=int(identity):
                 socketSendArray[i].send_json(generated_block)
-        block_chain.append[generated_block]
+        block_chain.append(generated_block)
 
 if __name__ == "__main__":
     global identity
