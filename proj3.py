@@ -31,9 +31,10 @@ def client():
                 message[i] = socketBindArray[i].recv_json()
                 #print(message[i])
                 if message[i] != 'heartbeat':
-                    print("getting a block")
+                    #print("getting a block")
                     block_chain.append(message[i])
-                    print("incoming message is " + json.dumps(message[i])+ "\n" )
+                    print("incoming block below ")
+                    print(json.dumps(message[i])+ "\n" )
                     #print(block_chain)
                     #socketSendArray[int(message[i].split(':')[0])-1].send_json(str(identity)+":ack")
 
@@ -52,7 +53,9 @@ def server():
         print("xx is " + str(xx))
         generated_block = {'block_number':(block_chain[-1]['block_number']+1), 'prev_hash':0, 'current_hash':0, 'a_balance':(block_chain[-1]['a_balance']-x), 'b_balance':(block_chain[-1]['b_balance']+x), \
         'c_balance':(block_chain[-1]['c_balance']-xx) ,'d_balance':(block_chain[-1]['d_balance']+xx)}
+        print("generated block below")
         print(generated_block)
+        print("\n")
         for i in range(len(socketSendArray)):
             if (i+1)!=int(identity):
                 socketSendArray[i].send_json(generated_block)
