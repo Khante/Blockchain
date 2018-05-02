@@ -33,7 +33,7 @@ def client():
         for j in range(len(message)):
             if (message[j] != 'heartbeat') and (message[j] != 0):
                 if(message[j]['block_number']!='bs_block'):
-                    print("j is" + j)
+                    print("j is" + str(j))
                     block_chain.append(message[j]) #might create problems with big message sizes
                     print("added")
                     print(block_chain[-1])
