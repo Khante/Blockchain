@@ -50,8 +50,9 @@ def server_master():
             if (i+1)!=int(identity):
                 message[i] = socketBindArray[i].recv_json()
                 #print(message[i])
-        print(message)
-        for j in range(len(message)):
+        #print(message)
+        correct_generators = []
+"""         for j in range(len(message)):
             if (message[j] != 'heartbeat') and (message[j] != 0):
                 if(message[j]['block_number']!='bs_block'):
                     #print(message[i]+ "what")
@@ -60,8 +61,24 @@ def server_master():
                     for i in range(len(socketSendArray)):
                         if (i+1)!=int(identity):
                             socketSendArray[i].send_json(message[j])
-                    message = [0,0,0,0,0]
-
+                    message = [0,0,0,0,0] """
+        for j in range(len(message)):
+            if (message[j] != 'heartbeat') and (message[j] != 0):
+                if(message[j]['block_number']!='bs_block'):
+                    correct_generators.append(message[j])
+        for k in range(len(correct_generators)):
+            if correct_generators[k]['identity'] == 1:
+                correct_generators[0]['a_balance'] *= 1.1
+            elif correct_generators[k]['identity'] == 1:
+                correct_generators[0]['b_balance'] *= 1.1
+            elif correct_generators[k]['identity'] == 1:
+                correct_generators[0]['c_balance'] *= 1.1
+            elif correct_generators[k]['identity'] == 1:
+                correct_generators[0]['d_balance'] *= 1.1 #assigns rewards and benifits
+        for i in range(len(socketSendArray)):
+            if (i+1)!=int(identity):
+                socketSendArray[i].send_json(correct_generators[0])
+        #message = [0,0,0,0,0]
 
 def server():
     global block_chain
