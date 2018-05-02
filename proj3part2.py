@@ -60,7 +60,7 @@ def server_master():
                     for i in range(len(socketSendArray)):
                         if (i+1)!=int(identity):
                             socketSendArray[i].send_json(message[i])
-                    break
+                break
 
 
 def server():
