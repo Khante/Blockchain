@@ -44,7 +44,7 @@ def server():
     global block_counter
     global identity
     while True:
-        time.sleep(sys.argv[2]) #change this for everyone
+        time.sleep(str(sys.argv[2])) #change this for everyone
         #block_counter += 1
         x = random.randint(1,5)
         print("x is " + str(x))
