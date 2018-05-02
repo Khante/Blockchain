@@ -101,7 +101,7 @@ if __name__ == "__main__":
         if (i+1)!=int(identity):
             #print(int(port)+i+1)
             socketSendArray[i].connect("tcp://" + ipAddresses[i]+ ":%s" % str(int(port)+int(identity)))
-
+    time.sleep(4)
     client_thread = threading.Thread(target=client)
     server_thread = threading.Thread(target=server)
     heartbeat_thread = threading.Thread(target=heartbeat)
