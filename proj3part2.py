@@ -65,9 +65,10 @@ def server_master():
                 correct_generators[0]['c_balance'] *= 1.1
             elif correct_generators[k]['identity'] == 1:
                 correct_generators[0]['d_balance'] *= 1.1 #assigns rewards and benifits
-        for i in range(len(socketSendArray)):
-            if (i+1)!=int(identity):
-                socketSendArray[i].send_json(correct_generators[0])
+        if(len(correct_generators)>=1):
+            for i in range(len(socketSendArray)):
+                if (i+1)!=int(identity):
+                    socketSendArray[i].send_json(correct_generators[0])
         #message = [0,0,0,0,0]
 
 def server():
