@@ -6,6 +6,7 @@ import zmq
 import os
 import random
 import json
+import hashlib
 
 def heartbeat():
     global socketBindArray
@@ -51,8 +52,13 @@ def server():
         print("x is " + str(x))
         xx = random.randint(1,5)
         print("xx is " + str(xx))
-        generated_block = {'block_number':(block_chain[-1]['block_number']+1), 'prev_hash':0, 'current_hash':0, 'a_balance':(block_chain[-1]['a_balance']-x), 'b_balance':(block_chain[-1]['b_balance']+x), \
+        hash_string = str(block_chain[-1]['prev_hash']) + str(block_chain[-1]['a_balance']-x) + str(block_chain[-1]['b_balance']+x) + \
+        str(block_chain[-1]['c_balance']-xx) + str(block_chain[-1]['d_balance']+xx)
+        generated_block = {'block_number':(block_chain[-1]['block_number']+1), 'prev_hash':str(block_chain[-1]['prev_hash']), 'current_hash':hashlib.md5(hash_string.encode()).hexdigest(),\
+         'a_balance':(block_chain[-1]['a_balance']-x),\
+         'b_balance':(block_chain[-1]['b_balance']+x), \
         'c_balance':(block_chain[-1]['c_balance']-xx) ,'d_balance':(block_chain[-1]['d_balance']+xx)}
+
         print("generated block below")
         print(generated_block)
         print("\n")
