@@ -54,9 +54,9 @@ def server():
         time.sleep(int(sys.argv[2])) #change this for everyone
         #block_counter += 1
         x = random.randint(1,5)
-        print("x is " + str(x))
+        #print("x is " + str(x))
         xx = random.randint(1,5)
-        print("xx is " + str(xx))
+        #print("xx is " + str(xx))
         hash_string = str(block_chain[-1]['current_hash']) + str(block_chain[-1]['a_balance']-x) + str(block_chain[-1]['b_balance']+x) + \
         str(block_chain[-1]['c_balance']-xx) + str(block_chain[-1]['d_balance']+xx)
         generated_block = {'block_number':(block_chain[-1]['block_number']+1), 'prev_hash':block_chain[-1]['current_hash'], 'current_hash':hashlib.md5(hash_string.encode()).hexdigest(),\
@@ -91,7 +91,7 @@ if __name__ == "__main__":
     socketBindArray = [socketBindOne, socketBindTwo, socketBindThree, socketBindFour]
     for i in range(len(socketBindArray)):
         if (i+1)!=int(identity):
-            print(int(port)+i+1)
+            #print(int(port)+i+1)
             socketBindArray[i].bind("tcp://*:%s" % str(int(port)+i+1))
     contextSendOne, contextSendTwo, contextSendThree, contextSendFour= zmq.Context(), zmq.Context() , zmq.Context() , zmq.Context()
     socketSendOne, socketSendTwo, socketSendThree, socketSendFour = contextSendOne.socket(zmq.PAIR), contextSendTwo.socket(zmq.PAIR), contextSendThree.socket(zmq.PAIR), contextSendFour.socket(zmq.PAIR)
