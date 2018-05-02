@@ -50,13 +50,14 @@ def server_master():
         #print(message)
         for i in range(len(message)):
             if (message[i] != 'heartbeat') and (message[i] != 0):
-                #print(message[i]+ "what")
-                print("sending block \n")
-                print(message[i])
-                for i in range(len(socketSendArray)):
-                    if (i+1)!=int(identity):
-                        socketSendArray[i].send_json(message[i])
-                break
+                if(message[i]['block_number']!='bs_block'):
+                    #print(message[i]+ "what")
+                    print("sending block \n")
+                    print(message[i])
+                    for i in range(len(socketSendArray)):
+                        if (i+1)!=int(identity):
+                            socketSendArray[i].send_json(message[i])
+                    break
 
 
 def server():
@@ -69,7 +70,7 @@ def server():
         time.sleep(10) #change this for everyone
         p = random.randint(1,100)
         print("p is "+ str(p))
-        if(p<25):
+        if(p>25):
             generated_block = {'block_number':'bs_block', 'prev_hash':0, 'current_hash':0,\
          'a_balance':0,  'b_balance':0,    'c_balance':0,'d_balance':0}
         else:
