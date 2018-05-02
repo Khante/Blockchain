@@ -30,11 +30,13 @@ def client():
             if (i+1)!=int(identity):
                 message[i] = socketBindArray[i].recv_json()
                 #print(message[i])
-                if (message[i] != 'heartbeat') and (message[i] != 0):
-                    if(message[i]['block_number']!='bs_block'):
-                        block_chain.append(message[i]) #might create problems with big message sizes
-                        print("added")
-                        print(block_chain[-1])
+        for i in range(len(message)):
+            if (message[i] != 'heartbeat') and (message[i] != 0):
+                if(message[i]['block_number']!='bs_block'):
+                    block_chain.append(message[i]) #might create problems with big message sizes
+                    print("added")
+                    print(block_chain[-1])
+
 
 def server_master():
     global block_chain
