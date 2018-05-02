@@ -50,6 +50,7 @@ def server():
         print("xx is " + str(xx))
         generated_block = {'block_number':block_counter, 'prev_hash':0, 'current_hash':0, 'a_balance':(block_chain[-1]['a_balance']-x), 'b_balance':(block_chain[-1]['b_balance']+x), \
         'c_balance':(block_chain[-1]['c_balance']-xx) ,'d_balance':(block_chain[-1]['d_balance']+xx)}
+        print(generated_block)
         for i in range(len(socketSendArray)):
             if (i+1)!=int(identity):
                 socketSendArray[i].send_json(generated_block)
