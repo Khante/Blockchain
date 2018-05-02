@@ -30,7 +30,7 @@ def client():
             if (i+1)!=int(identity):
                 message[i] = socketBindArray[i].recv_json()
                 #print(message[i])
-                if (message[i] != 'heartbeat') or (message[i] != 0):
+                if (message[i] != 'heartbeat') and (message[i] != 0):
                     block_chain.append(message[i]) #might create problems with big message sizes
                     print("added \n")
                     print(block_chain[-1])
@@ -50,7 +50,7 @@ def server_master():
         print(message)
         for i in range(len(message)):
             if (message[i] != 'heartbeat') and (message[i] != 0):
-                print(message[i]+ "what")
+                #print(message[i]+ "what")
                 for i in range(len(socketSendArray)):
                     if (i+1)!=int(identity):
                         socketSendArray[i].send_json(message[i])
