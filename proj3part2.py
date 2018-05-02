@@ -49,6 +49,7 @@ def server_master():
                 print(message[i])
         for i in range(len(message)):
             if (message[i] != 'heartbeat') or (message[i] != 0):
+                print(message[i])
                 for i in range(len(socketSendArray)):
                     if (i+1)!=int(identity):
                         socketSendArray[i].send_json(message[i])
