@@ -49,7 +49,7 @@ def server_master():
                 #print(message[i])
         print(message)
         for i in range(len(message)):
-            if (message[i] != 'heartbeat') or (message[i] != 0):
+            if (message[i] != 'heartbeat') and (message[i] != 0):
                 print(message[i]+ "what")
                 for i in range(len(socketSendArray)):
                     if (i+1)!=int(identity):
