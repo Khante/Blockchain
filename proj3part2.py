@@ -47,10 +47,12 @@ def server_master():
             if (i+1)!=int(identity):
                 message[i] = socketBindArray[i].recv_json()
                 #print(message[i])
-        print(message)
+        #print(message)
         for i in range(len(message)):
             if (message[i] != 'heartbeat') and (message[i] != 0):
                 #print(message[i]+ "what")
+                print("sending block \n")
+                print(message[i])
                 for i in range(len(socketSendArray)):
                     if (i+1)!=int(identity):
                         socketSendArray[i].send_json(message[i])
