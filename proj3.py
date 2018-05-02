@@ -15,7 +15,7 @@ def heartbeat():
         for i in range(len(socketSendArray)):
                     if (i+1)!=int(identity):
                         socketSendArray[i].send_json("heartbeat")
-        time.sleep(1)
+        time.sleep(0.3)
 
 def client():
     global block_chain
@@ -44,13 +44,13 @@ def server():
     global block_counter
     global identity
     while True:
-        time.sleep(5) #change this for everyone
-        block_counter += 1
+        time.sleep(sys.argv[2]) #change this for everyone
+        #block_counter += 1
         x = random.randint(1,5)
         print("x is " + str(x))
         xx = random.randint(1,5)
         print("xx is " + str(xx))
-        generated_block = {'block_number':block_counter, 'prev_hash':0, 'current_hash':0, 'a_balance':(block_chain[-1]['a_balance']-x), 'b_balance':(block_chain[-1]['b_balance']+x), \
+        generated_block = {'block_number':(block_chain[-1]['block_number']+1), 'prev_hash':0, 'current_hash':0, 'a_balance':(block_chain[-1]['a_balance']-x), 'b_balance':(block_chain[-1]['b_balance']+x), \
         'c_balance':(block_chain[-1]['c_balance']-xx) ,'d_balance':(block_chain[-1]['d_balance']+xx)}
         print(generated_block)
         for i in range(len(socketSendArray)):
