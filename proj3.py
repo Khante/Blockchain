@@ -29,11 +29,12 @@ def client():
             if (i+1)!=int(identity):
                 #print(int(port)+i+1)
                 message[i] = socketBindArray[i].recv_json()
-                print(message[i])
+                #print(message[i])
                 if message[i] != 'heartbeat':
                     print("getting a block")
                     block_chain.append(message[i])
-                    print(block_chain)
+                    print("incoming message is " + message[i])
+                    #print(block_chain)
                     #socketSendArray[int(message[i].split(':')[0])-1].send_json(str(identity)+":ack")
 
 def server():
