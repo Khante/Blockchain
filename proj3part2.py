@@ -25,7 +25,7 @@ def client():
     global block_number
     global identity
     while True:
-        message = [0,0,0,0]
+        message = [0,0,0,0,0]
         for i in range(len(socketBindArray)):
             if (i+1)!=int(identity):
                 message[i] = socketBindArray[i].recv_json()
