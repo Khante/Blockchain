@@ -33,6 +33,10 @@ def client():
                 #print(message[i])
                 if message[i] != 'heartbeat':
                     #print("getting a block")
+                    print("incoming message prev hash below")
+                    print(message[i]['prev_hash'])
+                    print("bloch chain curr hash below" )
+                    print(block_chain[-1]['current_hash'])
                     if(message[i]['prev_hash'] == block_chain[-1]['current_hash']):
                         block_chain.append(message[i])
                         print("incoming block below ")
@@ -55,7 +59,7 @@ def server():
         print("xx is " + str(xx))
         hash_string = str(block_chain[-1]['current_hash']) + str(block_chain[-1]['a_balance']-x) + str(block_chain[-1]['b_balance']+x) + \
         str(block_chain[-1]['c_balance']-xx) + str(block_chain[-1]['d_balance']+xx)
-        generated_block = {'block_number':(block_chain[-1]['block_number']+1), 'prev_hash':str(block_chain[-1]['current_hash']), 'current_hash':str(hashlib.md5(hash_string.encode()).hexdigest()),\
+        generated_block = {'block_number':(block_chain[-1]['block_number']+1), 'prev_hash':block_chain[-1]['current_hash'], 'current_hash':hashlib.md5(hash_string.encode()).hexdigest(),\
          'a_balance':(block_chain[-1]['a_balance']-x),\
          'b_balance':(block_chain[-1]['b_balance']+x), \
         'c_balance':(block_chain[-1]['c_balance']-xx) ,'d_balance':(block_chain[-1]['d_balance']+xx)}
