@@ -66,7 +66,7 @@ if __name__ == "__main__":
     'd_balance':100}
     block_chain.append(init_block)
     port = "6000"
-    ip_addresses = ['10.142.0.2','10.142.0.3','10.142.0.4','10.142.0.5'] #u only have 4
+    ipAddresses = ['10.142.0.2','10.142.0.3','10.142.0.4','10.142.0.5'] #u only have 4
 
     contextBindOne, contextBindTwo, contextBindThree, contextBindFour = zmq.Context(), zmq.Context() , zmq.Context() , zmq.Context()
     socketBindOne, socketBindTwo, socketBindThree, socketBindFour= contextBindOne.socket(zmq.PAIR), contextBindTwo.socket(zmq.PAIR), contextBindThree.socket(zmq.PAIR), contextBindFour.socket(zmq.PAIR)
