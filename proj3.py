@@ -23,6 +23,7 @@ def client():
     global socketSendArray
     global block_number
     global identity
+    message = [0,0,0,0]
     while True:
         for i in range(len(socketBindArray)):
             if (i+1)!=int(identity):
