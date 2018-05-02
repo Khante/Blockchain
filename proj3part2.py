@@ -51,7 +51,7 @@ def server_master():
             if (i+1)!=int(identity):
                 message[i] = socketBindArray[i].recv_json()
                 #print(message[i])
-        #print(message)
+        print(message)
         for j in range(len(message)):
             if (message[j] != 'heartbeat') and (message[j] != 0):
                 if(message[j]['block_number']!='bs_block'):
