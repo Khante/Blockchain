@@ -147,15 +147,3 @@ if __name__ == "__main__":
         server_thread.start()
     else:
         server_master_thread.start()
-
-#before you add a block put the identity inside an array and then count the number of blocks there are to change your probability
-"""         for j in range(len(message)):
-            if (message[j] != 'heartbeat') and (message[j] != 0):
-                if(message[j]['block_number']!='bs_block'):
-                    #print(message[i]+ "what")
-                    print("sending block")
-                    print(message[j])
-                    for i in range(len(socketSendArray)):
-                        if (i+1)!=int(identity):
-                            socketSendArray[i].send_json(message[j])
-                    message = [0,0,0,0,0] """
