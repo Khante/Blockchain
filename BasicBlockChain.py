@@ -148,7 +148,7 @@ if __name__ == "__main__":
     else:
         server_master_thread.start()
 
-
+#before you add a block put the identity inside an array and then count the number of blocks there are to change your probability
 """         for j in range(len(message)):
             if (message[j] != 'heartbeat') and (message[j] != 0):
                 if(message[j]['block_number']!='bs_block'):
