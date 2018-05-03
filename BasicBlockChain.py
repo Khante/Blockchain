@@ -1,11 +1,9 @@
 import time
 import sys
 import threading
-import os
 import zmq
 import os
 import random
-import json
 import hashlib
 
 def heartbeat():
